@@ -58,3 +58,7 @@ is represented by sections 0, 36–42 and 44. The full vision is preserved in
 The documentation checker verifies unique coverage IDs 0–44 and the existence of
 each target. Human/agent review must still assess substantive completeness and
 technical credibility. Acceptance IDs G1-01 through G1-20 are a separate checklist.
+
+The later [architectural addendum](ARCHITECTURAL-ADDENDUM.md) has its own nine-section
+map. It refines subsystem/evidence responsibilities and the preferred Genesis 2
+experiment while preserving this original founding record.

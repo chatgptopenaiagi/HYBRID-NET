@@ -12,6 +12,9 @@ independent client, optional server and hybrid modes; common capability semantic
 dual executables; AIXR; six language roles; state observation; credential authorities;
 SQLite/SQL Server roles; future integrations and measurable later milestones.
 Record eight initial ADRs, alternatives, unresolved questions and future-agent rules.
+Preserve the [architectural addendum](ARCHITECTURAL-ADDENDUM.md) in the same
+repository: three logical subsystems, independent evidence, V0–V5, provenance and
+the fixed future LibreOffice acceptance plan. This adds documentation, not runtime scope.
 
 Initialize the preferred local path without replacing existing files. Check Git,
 GitHub CLI, authenticated account and target repository existence without exposing

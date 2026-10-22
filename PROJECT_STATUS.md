@@ -8,9 +8,9 @@ engineering contracts. The first runtime milestone has not started.
 | Classification | Current state |
 | --- | --- |
 | VISION | AI-native execution, dual human/AI interfaces, multilanguage and distributed interoperability preserved |
-| PROPOSED ARCHITECTURE | AIXR, HMCP, client/server, Studio, identity, persistence, adapters and recovery documented |
+| PROPOSED ARCHITECTURE | HACE, HMCP, AIXR, independent evidence/V0–V5, client/server, Studio, identity, persistence, adapters and recovery documented |
 | ENGINEERING DECISION | Eight ADRs distinguish accepted founding constraints from proposed implementation choices |
-| EXPERIMENTAL HYPOTHESIS | Genesis 2 transport/language choices and later adapters have explicit evaluation questions |
+| EXPERIMENTAL HYPOTHESIS | Genesis 2 LibreOffice conversion has ten predetermined acceptance criteria; transport, language and verifier choices remain open |
 | IMPLEMENTED COMPONENT | Repository documentation, conceptual JSON examples and a PowerShell documentation integrity checker |
 | VERIFIED CAPABILITY | No HYBRID.NET application-execution capability; document-validation and publication results belong to the Genesis report |
 
@@ -30,6 +30,8 @@ The [report](docs/genesis/GENESIS-1-REPORT.md) records actual checks and publica
 The [founding traceability](docs/genesis/FOUNDING-TRACEABILITY.md) preserves every
 numbered mission section. Git identifies the current commit; do not infer current
 working-tree or remote state from a dated document.
+The [architectural addendum](docs/genesis/ARCHITECTURAL-ADDENDUM.md) maps the HACE,
+independent-evidence and first-experiment refinements to their canonical documents.
 
 Initial local path: `I:\HYBRID-NET`. Intended public repository:
 [chatgptopenaiagi/HYBRID-NET](https://github.com/chatgptopenaiagi/HYBRID-NET).
@@ -37,10 +39,11 @@ Publication is pending final foundation validation and commit at this checkpoint
 
 ## Next engineering work
 
-Genesis 2 should settle one initial transport and one language pair through an
-ADR, then prove two local processes with one synthetic deterministic capability.
-Define versions, identity, bounded inputs, verification and uncertain outcomes before
-adding real application control. No third-party installation is required to begin.
+Genesis 2 should prove the [real LibreOffice DOCX-to-PDF path](docs/genesis/GENESIS-2-EXPERIMENT.md):
+HACE discovery, HMCP invocation, AIXR execution, independent PDF checks and SQLite
+evidence. Select only the language components and transport needed for that scope.
+Freeze input, criteria and verification rules before execution. A synthetic exchange
+may prepare the path but does not complete the milestone. No experiment has run.
 See [roadmap](ROADMAP.md) and [open questions](docs/research/TECHNICAL-QUESTIONS.md).
 
 Do not interpret this architectural foundation as production readiness, universal

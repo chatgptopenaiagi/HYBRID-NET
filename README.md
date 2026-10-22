@@ -85,6 +85,18 @@ These are design roles, not six implemented SDKs or six required installations.
 **AIXR**, Artificial Intelligence Execution Runtime, is the internal runtime
 concept. HYBRID.NET remains the project identity and is not a Microsoft product.
 
+The architecture separates three logical responsibilities: **HACE**, Hybrid
+Application Capability Engine, identifies supported capabilities and registers
+their metadata and provenance; **HMCP** defines machine-readable contracts;
+**AIXR** coordinates execution, workers and recovery. These are not three required
+executables or services. See the [capability lifecycle](docs/architecture/CAPABILITY-ENGINE.md).
+
+An adapter success response or exit code cannot establish fulfillment by itself.
+The [Independent Evidence Principle](docs/architecture/INDEPENDENT-VERIFICATION.md)
+separates reported execution, independent observation and predetermined acceptance
+criteria. Proposed V0–V5 levels distinguish a request from a verified result and
+its separate reproduction. Artifact hashes identify bytes; they do not prove meaning.
+
 ## Identity and persistence
 
 AI provider credentials, client-to-server identity and scoped HYBRID.NET API
@@ -113,8 +125,11 @@ From PowerShell 7, validate repository documentation without installing any runt
 ```
 
 This checks document integrity and conceptual JSON syntax. It does not test an
-execution framework. Genesis 2 should prove two local processes exchanging one
-synthetic capability and verification receipt before real application integration.
+execution framework. The [preferred Genesis 2 experiment](docs/genesis/GENESIS-2-EXPERIMENT.md)
+is real LibreOffice DOCX-to-PDF conversion through a supported non-graphical
+interface, independently checked against ten fixed criteria and recorded in SQLite.
+It remains unimplemented; the [architectural addendum](docs/genesis/ARCHITECTURAL-ADDENDUM.md)
+records this refinement within Genesis 1.
 CFA, SCE, QASC/CLARA, CAE and POK remain optional neighboring projects; their code
 and credentials are not imported here. License selection remains an open owner
 decision; no license file has been added.

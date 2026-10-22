@@ -14,7 +14,7 @@ different physical schemas and concurrency controls.
 | Agents | `agent_id`; authenticated principal association, client relationship and policy references; no assumption that a model is itself a trusted identity. |
 | ExecutionJobs | `job_id`; originating principal/client, pinned capability/adapter versions, input fingerprint, idempotency scope, effect class, deadline and current lifecycle state. |
 | ExecutionEvents | `event_id`; job ID, producer ID, sequence, timestamp, event kind and bounded redacted payload; append-only engineering history. |
-| VerificationResults | `verification_id`; job ID, fixed criterion version/hash, verifier identity, outcome, evidence references and output fingerprints. |
+| VerificationResults | `verification_id`; job/trial IDs, fixed criterion version/hash, independent observer/verifier identities and mechanisms, actual observations/evaluations, outcome, separately justified V0–V5 level, evidence references and output fingerprints. |
 | ApplicationStates | application/client identity plus `application_instance_id` and `state_version`; observation time, source adapter, structured snapshot and completeness/freshness indicators. A restarted application gets a new instance identity. |
 | RecoveryCheckpoints | `checkpoint_id`; job ID, adapter-supported resume information, evidence and known effect state; no claim of universal application rollback. |
 | Dependencies | `dependency_id`; capability/adapter requirement, version constraint, observed availability, probe time and provenance. |
@@ -24,6 +24,13 @@ capabilities. A job pins one concrete provider binding so registry updates canno
 silently change its meaning. Jobs have many events and verification results. A
 verification receipt may be superseded by a later check but must not erase the
 historical failure or input/output hashes that explain it.
+
+HACE owns capability discovery meaning, HMCP conveys contracts and provenance, and
+AIXR coordinates execution and verification; persistence preserves their evidence
+without becoming another execution authority. Store the selected capability and
+interface, application/adapter versions, contract, input references/hashes,
+execution result and application report alongside linked independent observations.
+Keep these facts distinguishable rather than collapsing them into one success flag.
 
 ## Consistency and recovery rules
 
@@ -54,6 +61,12 @@ only when the capability contract and durable evidence justify them.
 Artifacts use content hashes, sizes, media types and access-controlled references.
 A matching hash establishes byte identity, not semantic correctness. Verification
 criteria and actual observed results remain separate from adapter exit status.
+The [Independent Evidence Principle](../architecture/INDEPENDENT-VERIFICATION.md)
+defines the proposed V0–V5 assertions. Verification status and evidence level are
+separate fields; null levels and inconclusive outcomes must be representable.
+V5 links separate V4 trial receipts with documented conditions and the same fixed
+criteria. Failed repetition must remain visible and cannot promote an earlier
+result. Retain bounded failure diagnostics and observation independence limits.
 Sensitive application state needs purpose limits and retention controls; ordinary
 rows and event payloads must contain no credentials. Evidence deletion must leave
 an explicit availability marker so an old `passed` label cannot imply its proof

@@ -5,6 +5,14 @@ illustrative messages; it implements no API, validator, wire protocol or listene
 HMCP names the common contract across agents, adapters and all six language domains.
 It does not require every call to pass through Go or an AI model.
 
+The three proposed subsystem responsibilities remain distinct: HACE (Hybrid
+Application Capability Engine) identifies capabilities and supported interfaces;
+HMCP carries their shared contracts and evidence; AIXR (Artificial Intelligence
+Execution Runtime) coordinates execution and verification. The canonical
+[Independent Evidence Principle and V0–V5 model](../architecture/INDEPENDENT-VERIFICATION.md)
+define how reports become justified conclusions; a protocol message does not prove
+that a capability or result exists.
+
 ## Discovery and registration
 
 An adapter registration should identify its publisher, adapter version, application,
@@ -59,9 +67,20 @@ Errors need a stable code, stage, bounded safe message, evidence reference and
 effect status (`none`, `partial`, `complete`, `unknown`). A retry hint never overrides
 authorization, idempotency or unknown-outcome policy.
 
-Execution `succeeded` means the adapter completed its declared operation. Verification
+Execution `succeeded` records the adapter's reported completion of its declared
+operation; it is not an independent observation of the intended result. Verification
 is separately `not_requested`, `pending`, `passed`, `failed` or `inconclusive`, tied
 to fixed criteria, verifier identity, actual inputs/outputs and artifact hashes.
 A zero exit code or an adapter's assertion alone cannot prove the requested result.
 The client can verify returned remote artifacts without trusting a remote success
 label. [Persistence](../persistence/DATA-MODEL.md) defines intended durable records.
+
+Proposed receipts also carry a separately justified `verification_level` from the
+V0–V5 evidence model, or null when unsupported. V4 requires independent observations
+passing predetermined criteria; V5 requires separate documented trials satisfying
+V4 under the same criteria. Neither is inferred from lifecycle state. Preserve the
+operation/request/trial IDs, selected capability/interface, application/adapter
+versions, contract and input references/hashes, execution and application reports,
+independent observation mechanism, criterion version, evaluations, output hashes
+and failure diagnostics. Distinguish absent evidence from a failing observation;
+do not place credentials in the receipt or treat hashes as semantic verification.

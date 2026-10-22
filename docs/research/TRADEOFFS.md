@@ -18,11 +18,13 @@ facts and primary sources are collected in [research provenance](EXISTING-TECHNO
 | Browser Studio / native shell / packaged web UI | Each can consume a common runtime API. | Accessibility, deployment size, offline operation and attack surface differ. | Actual UI requirements and small accessibility/deployment comparison in Genesis 7. |
 | SQLite / optional SQL Server | Local independence plus centralized administration where useful. | Concurrency, migration and synchronization are distinct design problems. | Provider conformance, interrupted writes and disconnected-client recovery. |
 
-The first experiment should minimize simultaneous decisions: one synthetic
-capability, two processes, one framing method and a fixed verifier. A prototype
-choice is reversible and must not silently become a mandate for all components.
-Adding six workers, a remote server and a GUI at once would make failures difficult
-to attribute and provide little evidence about the core contract.
+The first proof should minimize simultaneous decisions while exercising the
+owner's chosen real [LibreOffice conversion](../genesis/GENESIS-2-EXPERIMENT.md):
+one useful capability, a bounded local execution path, one framing method and an
+independent fixed verifier. A synthetic two-process exchange may prepare that path,
+but cannot complete Genesis 2. A prototype choice remains reversible rather than
+becoming a mandate for all components. Adding six workers, a remote server and a
+GUI at once would make failures difficult to attribute.
 
 There is an unavoidable tension between convenient automatic retries and avoiding
 duplicate side effects. Use explicit idempotency semantics and durable execution

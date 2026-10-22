@@ -5,9 +5,16 @@
   "protocol_version": "0.1-draft",
   "request_id": "example-request-001",
   "job_id": "example-job-001",
+  "trial_id": null,
+  "application": "LibreOffice",
+  "application_version": null,
   "capability": "DOCUMENT.EXPORT_PDF",
   "capability_version": "0.1-draft",
+  "adapter": "LibreOffice.UNO",
   "adapter_version": "illustrative-only",
+  "selected_interface": "UNO_conceptual_candidate",
+  "input_references": [],
+  "input_hashes": [],
   "execution": {
     "status": "unknown_outcome",
     "effect_status": "unknown",
@@ -16,12 +23,21 @@
     "safe_message": "The example illustrates uncertainty; no operation was executed.",
     "automatic_replay_allowed": false
   },
+  "application_report": null,
   "verification": {
     "status": "inconclusive",
+    "verification_level": null,
+    "level_note": "No evidence level is claimed: this is a conceptual example, not an execution receipt from a real trial.",
     "criteria_reference": "example-pdf-contract-v1",
+    "criteria_version": null,
     "verifier_id": null,
+    "independent_observer": null,
+    "observation_mechanism": null,
+    "observations": [],
+    "criteria_evaluations": [],
     "artifact_hashes": [],
-    "evidence": []
+    "evidence": [],
+    "reproduction_trials": []
   },
   "recovery": {
     "action": "reconcile_existing_job_before_retry",

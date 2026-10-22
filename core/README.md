@@ -11,6 +11,7 @@ hop for every operation.
 Inputs will be authorized, versioned HMCP requests and current capability evidence.
 Outputs will distinguish accepted work, execution outcomes and verification results.
 Local execution must remain independent of server health. The first code belongs
-to the scoped two-process experiment in [Genesis 2](../ROADMAP.md), with fixed
-fixtures for failure and unknown outcomes before distributed orchestration.
+to the scoped [Genesis 2 LibreOffice experiment](../docs/genesis/GENESIS-2-EXPERIMENT.md),
+with fixed criteria, independent verification and SQLite evidence. A synthetic
+process check may prepare this path; distributed orchestration remains later work.
 See [AIXR](../docs/vision/AIXR-CONCEPT.md) and [HMCP](../docs/protocols/HMCP-CONCEPT.md).

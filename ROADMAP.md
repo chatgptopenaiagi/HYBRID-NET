@@ -7,10 +7,10 @@ languages, applications or operating systems already work. Refine it with ADRs.
 | Milestone | Scope | Required exit evidence |
 | --- | --- | --- |
 | Genesis 1: architecture foundation | Repository, preserved vision, contracts, governance and continuity | Founding traceability reviewed; document/link/JSON checks pass; local commit verified; remote publication verified when authenticated |
-| Genesis 2: minimal HMCP experiment | One coordinator and one worker process, one synthetic deterministic capability, no external app | Version negotiation, discovery, scoped invocation, independent expected output, malformed input rejection, timeout/cancel/disconnect outcomes and durable receipt; no central-server dependency |
+| Genesis 2: real independently verified capability | Codex → HACE discovery → HMCP → AIXR → supported non-GUI LibreOffice DOCX-to-PDF conversion → independent PDF verifier → local SQLite evidence | Frozen two-page fixture and all ten acceptance cases in the canonical experiment pass for V4; any V5 claim requires a separate successful repetition under the same criteria; no central-server dependency |
 | Genesis 3: multilanguage workers | Incrementally add Go, C++, Java, JS/TS, Python and .NET workers behind the same contract | Each language passes identical contract fixtures; types, errors, cancellation and encoding agree; missing workers do not disable others |
-| Genesis 4: standalone Windows client | Optional authenticated loopback API, local registry, SQLite, credential integration and configuration | Works offline with server absent; unauthorized requests denied; restart/migration/credential handling and local recovery demonstrated on recorded Windows versions |
-| Genesis 5: first real adapter | Candidate: LibreOffice document manipulation through supported APIs | Current app/interface preflight; create/edit/export fixture; independently inspect resulting document/PDF; preserve originals; report unsupported states and app versions |
+| Genesis 4: full standalone Windows client | Generalize the narrow Genesis 2 path into optional authenticated loopback API, local registry, SQLite, credential integration and configuration | Works offline with server absent; unauthorized requests denied; restart/migration/credential handling and local recovery demonstrated on recorded Windows versions |
+| Genesis 5: broader application-adapter framework | Extend the initial LibreOffice proof to reusable adapter lifecycle and additional document/application operations | Versioned registration, current interface preflight, independent verification and failure/recovery evidence for each additional operation; preserve originals and report unsupported states/app versions |
 | Genesis 6: optional server | Enrollment, identity, distributed routing and optional SQL Server provider | Reject untrusted clients and unauthorized jobs; local client survives outages; reconnect reconciles unknown outcomes without duplicate non-idempotent effects; verify returned artifact provenance |
 | Genesis 7: Studio | Human capability explorer, agent/client sessions, configuration, history and diagnostics | Human and agent views share state and policy; accessible UI tests; concurrent edits/conflicts surfaced; no UI-only path required for supported machine operations |
 | Genesis 8: optional ecosystem integrations | CFA, SCE, QASC/CLARA, CAE and POK contracts | One independently versioned integration at a time; unavailable-provider fallback; permissions and evidence preserved; no repository merger or mandatory external dependency |
@@ -18,25 +18,29 @@ languages, applications or operating systems already work. Refine it with ADRs.
 
 ## Next recommended step: Genesis 2
 
-Choose the first coordinator/worker language pair and one transport through a
-focused ADR. A small stdio JSON exchange is a candidate, not a settled framework
-stack. Native pipes and gRPC should be evaluated against actual requirements,
-deployment complexity, message limits, lifecycle and identity needs.
+Use the [canonical Genesis 2 experiment](docs/genesis/GENESIS-2-EXPERIMENT.md).
+The owner's revised priority is one useful real capability: convert a controlled
+DOCX to PDF through a supported LibreOffice interface, verify the result with an
+independent parser and persist execution/verification evidence in local SQLite.
+Codex must reach it through HACE discovery, HMCP and AIXR. All ten predetermined
+acceptance cases are mandatory for V4. V5 is a separate reproduction claim.
 
-Use a synthetic capability such as bounded integer addition with independent
-fixtures fixed before implementation. Keep it free of personal files, credentials,
-external applications, provider inference and internet access. Define request,
-job and capability identities, protocol versions and deterministic error cases.
+Pin the input bytes, two-page expectation, exact synthetic text/table, fonts,
+application/export settings and verifier criteria before the trial. The narrow
+client execution path must work without a central server or GUI automation.
+This does not require all six workers, a complete Studio UI or a finished client.
+Do not install applications, modify them or execute the trial during Genesis 1.
 
-Required experiments: unknown method/version; oversized request; invalid input;
-worker exit before result; timeout; cancellation race; duplicate idempotency key;
-restart with a dispatched job whose outcome is uncertain. Preserve raw bounded
-receipts and distinguish process completion from successful verification. An
-unknown-outcome job must not quietly become a success or an automatic retry.
+Choose a minimal language/transport implementation through a focused ADR. An
+optional synthetic two-process exchange may test framing and lifecycle before
+application integration, but it cannot complete Genesis 2. Preserve bounded
+failure receipts for invalid requests, stale outputs, timeout, cancellation and
+interrupted persistence. Unknown outcomes must not become success or unsafe replay.
 
-Pass only after the same fixture can be invoked repeatedly from PowerShell with
-recorded interpreter/binary versions and no server. Do not use a synthetic result
-to claim LibreOffice control, distributed reliability or installed client support.
+Future completion requires the actual real pipeline and independently readable
+evidence, not just a hand-run conversion or successful process exit. Text and table
+checks do not establish pixel-perfect rendering; additional layout criteria are
+separate. Record missing prerequisites as blockers instead of substituting a mock.
 
 ## Cross-cutting gates
 

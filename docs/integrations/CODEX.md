@@ -23,8 +23,9 @@ authorization decision and verification result. A returned tool message cannot
 upgrade an unverified result to success. Large artifacts should be referenced
 through authorized, hashed descriptors rather than inserted into model context.
 
-A later acceptance test should use a synthetic capability: discover it, invoke
-it with valid input, reject invalid or unauthorized input, and retrieve the same
-execution receipt by identifier. Deterministic runtime tests must also work with
-no model connected. No existing Codex configuration, authentication or executable
-is imported or changed by this integration proposal.
+The preferred [Genesis 2 experiment](../genesis/GENESIS-2-EXPERIMENT.md) connects
+Codex to discovered LibreOffice conversion through HMCP/AIXR, then returns an
+independently checked receipt recorded in SQLite. A synthetic contract test may
+first exercise invalid/unauthorized input and receipt lookup. Deterministic runtime
+tests must also work with no model connected. No existing Codex configuration,
+authentication or executable is imported or changed by this integration proposal.

@@ -17,8 +17,10 @@ JavaScript/TypeScript Studio and web integration, Python AI/scripting/diagnostic
 and .NET managed Windows integration. These are ownership proposals, not six
 mandatory dependencies or a finalized call graph.
 
-Start with an explicit process boundary and one synthetic operation in Genesis 2.
-Select the prototype language and transport through a focused ADR. Go is a
+Start with only the components needed for the
+[Genesis 2 LibreOffice experiment](../genesis/GENESIS-2-EXPERIMENT.md); a synthetic
+process check is optional preparation. Select language and transport through a
+focused ADR, with explicit worker boundaries. Go is a
 candidate principal runtime; it is not a compulsory intermediary for every call.
 
 ## Consequences and alternatives

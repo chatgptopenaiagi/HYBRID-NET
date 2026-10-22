@@ -15,7 +15,7 @@ Referencing another project does not authorize edits or imports from it.
 
 ## Architectural invariants
 
-- Human intent defines the outcome; execution evidence determines success.
+- Human intent defines the outcome; independent verification determines success.
 - The client works independently of the optional central server. Deterministic
   local operations must not require internet access, remote AI or a server.
 - Human and AI executables share a core in native applications. A companion for
@@ -25,6 +25,9 @@ Referencing another project does not authorize edits or imports from it.
   of deeper application access. Installed software is not a verified capability.
 - HMCP is the proposed common capability contract. MCP is an optional agent-facing
   mapping. Keep semantic contracts separate from transport and implementation.
+- HACE identifies and registers capabilities with provenance; HMCP defines shared
+  contracts; AIXR coordinates execution and recovery. These are three logical
+  responsibilities, not a requirement for three executables or services.
 - Go, C++, Java, JavaScript/TypeScript, Python and C#/.NET have candidate roles.
   Do not mandate six runtimes or select the principal runtime without an ADR and
   a scoped experiment. AIXR is a subsystem concept, not a new project identity.
@@ -49,6 +52,9 @@ artifact hashes, process outcomes, verification criteria, failure receipts and
 recovery behavior. Separate execution completion from verified outcome. Never
 weaken fixed criteria or replay an uncertain non-idempotent operation automatically.
 No directory boundary, timeout or credential API alone is an OS sandbox.
+Use [the canonical evidence model](docs/architecture/INDEPENDENT-VERIFICATION.md)
+for proposed V0–V5 levels. V4 needs independent observations meeting predetermined
+criteria; V5 requires a separate reproduction of V4. Hashes do not prove correctness.
 
 Keep local environment reports, caches, secrets, model exchanges and generated
 artifacts outside tracked source. Deliberately selected aggregate validation
@@ -64,9 +70,11 @@ decisions contains ADRs; genesis contains scope, traceability and acceptance.
 Top-level core/client/server/sdk/adapters/protocols/database/tests/examples/scripts
 directories describe future ownership rather than imply implemented modules.
 
-Choose the smallest measurable step in ROADMAP.md. Genesis 2 begins with two
-local processes and one synthetic capability; it does not begin a full distributed
-runtime. Update status, contracts, evidence and roadmap together. Prefer explicit
+Choose the smallest measurable step in ROADMAP.md. The preferred Genesis 2 proof
+is [LibreOffice DOCX-to-PDF conversion](docs/genesis/GENESIS-2-EXPERIMENT.md),
+independent PDF verification and local SQLite evidence. A synthetic process check
+may prepare that experiment but cannot replace it. Do not implement it during
+Genesis 1. Update status, contracts, evidence and roadmap together. Prefer explicit
 argument arrays, bounded execution and reproducible PowerShell 7 commands. Run
 scripts/validate-docs.ps1 for documentation integrity; it is not a runtime test.
 Do not add dummy implementations merely to populate the architecture.

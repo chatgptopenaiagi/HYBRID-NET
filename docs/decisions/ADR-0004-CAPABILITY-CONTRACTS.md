@@ -31,6 +31,8 @@ reuse of an existing protocol remains preferable where it preserves requirements
 
 ## Validation
 
-Genesis 2 must demonstrate discovery and one invocation across two local processes,
-including malformed input, unsupported version and typed failure. A mapping is
-accepted only after tests show that identity, scope and verification survive it.
+Genesis 2 must demonstrate discovery and invocation in the
+[real LibreOffice path](../genesis/GENESIS-2-EXPERIMENT.md), preserving independent
+verification and SQLite evidence. Supporting contract tests cover malformed input,
+unsupported versions and typed failures. A mapping is accepted only after tests
+show that identity, scope and verification survive it.

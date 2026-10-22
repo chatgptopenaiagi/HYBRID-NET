@@ -47,6 +47,13 @@ internal runtime subsystem. The intended architectural role is shared execution
 infrastructure, comparable at a broad level to a framework/runtime ecosystem, not
 an assertion of Microsoft .NET compatibility or affiliation.
 
+The [architectural addendum](../genesis/ARCHITECTURAL-ADDENDUM.md) clarifies three
+logical responsibilities: HACE, Hybrid Application Capability Engine, discovers
+and registers supported capabilities with provenance; HMCP supplies common
+contracts; AIXR coordinates execution and recovery. This does not mandate three
+executables. The [Independent Evidence Principle](../architecture/INDEPENDENT-VERIFICATION.md)
+governs what execution reports, observations and criteria can actually establish.
+
 The framework is positioned between agents and application capabilities. It
 coordinates discovery, orchestration and verification through adapters for native
 APIs, scripting and local IPC. The initial boundary is user space. Deeper OS
@@ -150,8 +157,8 @@ HYBRID.NET integrations. Their repositories remain independent and unchanged.
 
 Future adapter candidates include LibreOffice, Blender, Photoshop, Dreamweaver,
 CCleaner, Joomla, Poker-Odds-Knowledge, PowerShell, Windows services and other
-Windows applications. LibreOffice document manipulation is a promising later
-experiment because of its documented automation interfaces. No third-party adapter
+Windows applications. LibreOffice DOCX-to-PDF conversion is the preferred Genesis 2
+experiment through its documented automation interfaces. No third-party adapter
 or application installation belongs to this Genesis milestone.
 
 ## Ten founding principles
@@ -170,9 +177,11 @@ or application installation belongs to this Genesis milestone.
 ## Genesis discipline
 
 Genesis 1 establishes the repository, architecture, decisions, governance, roadmap
-and agent continuity. Subsequent milestones progress through a minimal HMCP/local
-process experiment, language workers, standalone client, a real application adapter,
-distributed server, Studio, optional project integrations and measured hardening.
+and agent continuity. The addendum refines the next step to a
+[real LibreOffice conversion with independent verification](../genesis/GENESIS-2-EXPERIMENT.md)
+and local SQLite evidence. Later milestones broaden language workers, the standalone
+client, application adapters, distributed server, Studio, optional integrations and
+measured hardening. A synthetic process exchange may prepare the first experiment.
 The ordering is revisable through evidence; passing a documentation check does not
 advance a runtime milestone. Future contributors must keep vision, proposals,
 decisions, hypotheses, implementation and verified capability distinct.

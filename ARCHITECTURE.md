@@ -13,10 +13,10 @@ flowchart TB
     Agents --> Gateway[Authorized machine gateway / optional MCP mapping]
     Studio --> Local[Client-owned local runtime / AIXR]
     Gateway --> Local
-    Local --> Discovery[Capability registry and current preflight]
+    Local --> Discovery[HACE: discovery, registry and current evidence]
     Local --> Policy[Identity, authorization and resource policy]
     Local --> Jobs[Bounded job coordination]
-    Jobs --> Adapters[Versioned adapters and language workers]
+    Jobs -->|HMCP contracts| Adapters[Versioned adapters and language workers]
     Adapters --> APIs[CLI / scripting / native APIs / COM / SDKs]
     APIs --> Apps[Application capabilities]
     Apps --> OS[Documented Windows services and APIs]
@@ -41,11 +41,18 @@ imply drivers, kernel modification or universal access to application internals.
 | --- | --- | --- |
 | Client | Local identity, registry, jobs, evidence, recovery and optional gateway | Dependence on the central server |
 | Server | Enrollment, distributed routing, authorized job state and evidence collection | Unrestricted remote execution or trusted results by assertion |
-| AIXR | Capability lifecycle, worker supervision, cancellation and result handling | A replacement language VM, compiler or new project name |
+| HACE | Identify supported interfaces, register capability metadata/provenance, associate results with evidence | Universal understanding or access to arbitrary executables |
+| HMCP | Language-independent capability contracts, invocation semantics, operation identity and structured results | A mandated transport or implemented protocol |
+| AIXR | Invoke registered capabilities, supervise workers, manage lifecycles and controlled recovery | A replacement language VM, compiler or new project name |
 | Adapter | Map supported application mechanisms to HMCP contracts and report limits | Access to undocumented internals of arbitrary executables |
 | Studio | Human view and management of the same authorized runtime state | A second independent execution authority |
 | Agent gateway | Translate requests into versioned, authorized capability invocations | Permission from natural-language intent alone |
 | Verification | Evaluate explicit postconditions and preserve evidence | Proof from exit code or model confidence alone |
+
+HACE, HMCP and AIXR are three logical subsystem responsibilities, not three required
+processes or services. The [HACE lifecycle](docs/architecture/CAPABILITY-ENGINE.md)
+spans discovery through verification, with work shared across those boundaries.
+Verification is a component responsibility, not an additional named engine.
 
 ## Native applications and third-party bridges
 
@@ -79,6 +86,12 @@ query durable job identity and reconcile evidence before deciding whether to ret
 An idempotency key is a deduplication mechanism only if its scope, storage and
 adapter behavior are defined; it does not make every side effect exactly-once.
 
+The [Independent Evidence Principle and proposed V0–V5 hierarchy](docs/architecture/INDEPENDENT-VERIFICATION.md)
+define the evidence chain and provenance requirements. Execution reports, independent
+observations, criterion evaluations and final conclusions remain distinct. V4 needs
+predetermined criteria to pass; V5 requires a separate documented reproduction of
+V4. Evidence strength must match consequences and known observation limits.
+
 Shared human/AI state requires version checks, resource ownership and explicit
 conflict outcomes. An agent must not overwrite a document changed by a person
 after its observation. State may be stale or partially observable; include capture
@@ -111,6 +124,8 @@ not implemented synchronization.
 - [Protocol](docs/protocols/HMCP-CONCEPT.md), [IPC alternatives](docs/protocols/IPC-OPTIONS.md), [security](docs/security/API-KEY-ARCHITECTURE.md), [data model](docs/persistence/DATA-MODEL.md)
 - [Initial ADRs](docs/decisions/ADR-0001-PROJECT-IDENTITY.md), [open questions](docs/research/TECHNICAL-QUESTIONS.md), [measurable milestones](ROADMAP.md)
 
-Genesis 2 is a deliberately small local experiment. Neither this architecture nor
+The [Genesis 2 experiment](docs/genesis/GENESIS-2-EXPERIMENT.md) targets a deliberately
+small local LibreOffice conversion, independent PDF verification and SQLite evidence.
+Its ten acceptance criteria are specified before implementation. Neither this architecture nor
 the existence of a draft message establishes operational compatibility, application
 control, verified remote recovery or production readiness.

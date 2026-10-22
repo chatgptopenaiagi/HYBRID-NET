@@ -20,11 +20,14 @@ adapter tests. See [capability-engine design](../docs/architecture/CAPABILITY-EN
 | Windows services | L3 documented Service Control Manager APIs | Read the state of a designated synthetic service | Apply service-specific access checks. Starting/stopping a service is a separate mutation requiring scope; no shared services are changed in Genesis. [SCM interface](https://learn.microsoft.com/en-us/windows/win32/services/service-control-manager) |
 | Other Windows applications | L1-L3 when documented; explicit L0 fallback; L4-L5 only by native design | One useful operation with independently observable output | Research each product's supported interface. Inventory or an `.exe` path is insufficient. If no direct interface exists, label the limitation rather than promise automatic internal access. |
 
-LibreOffice is the preferred *candidate* for Genesis 5 because the documented
-object interface offers a concrete route to document operations. That is an
-engineering inference, not a completed adapter evaluation. Begin with an isolated
-profile and disposable input/output documents when that milestone is authorized;
-do not alter a user's open documents or install the application now.
+The owner's addendum selects LibreOffice DOCX-to-PDF as the preferred real
+[Genesis 2 experiment](../docs/genesis/GENESIS-2-EXPERIMENT.md). A supported UNO or
+headless CLI route must be resolved against the actual installation, followed by
+independent PDF verification and local SQLite evidence. This is a planned proof,
+not a completed adapter evaluation. Begin with an isolated profile and disposable
+input/output documents when implementation is authorized; do not alter a user's
+open documents or install the application now. Genesis 5 broadens adapter lifecycle
+and operation coverage beyond this initial narrow proof.
 
 Each future adapter proposal must name the supported application versions,
 integration level, allowed operations, state observations, effect scope, timeouts,

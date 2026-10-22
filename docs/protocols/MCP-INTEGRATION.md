@@ -33,8 +33,10 @@ revision and test its actual client compatibility; a generic WebSocket or named-
 HMCP transport is not automatically an MCP transport.
 [MCP transport specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports).
 
-Genesis 2 should establish a transport-independent HMCP lifecycle first. A later
-gateway experiment should prove discovery, invocation, denied scope, cancellation,
-lost response and separate verification results using a synthetic capability.
+Genesis 2 should establish the HMCP lifecycle and a minimal agent-facing mapping
+for the [real LibreOffice experiment](../genesis/GENESIS-2-EXPERIMENT.md). MCP is a
+candidate mapping, not a mandatory transport choice. Supporting synthetic tests
+can exercise denied scope, cancellation, lost responses and receipt lookup, but
+cannot substitute for the independently verified application result.
 Provider sampling remains optional and needs its own authorization; invoking a
 known deterministic capability must not secretly trigger model inference.

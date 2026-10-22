@@ -29,7 +29,9 @@ paths, null versus omitted fields, numeric precision, binary artifact references
 unknown versions, deadline expiry and invalid inputs. Protocol framing and output
 limits must prevent ordinary worker logging from corrupting machine messages.
 
-Genesis 2 should establish a small contract with two local processes. Genesis 3
-can add languages incrementally using the same fixtures. Supported interpreter,
+Genesis 2 should establish the smallest contract needed for the
+[LibreOffice conversion and independent verification](../genesis/GENESIS-2-EXPERIMENT.md).
+It need not use all six workers; a synthetic process exchange is optional preparation.
+Genesis 3 can add languages incrementally using common fixtures. Supported interpreter,
 compiler and OS versions must be based on executed compatibility tests, not the
 existence of a language document or compiler installation.
