@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Documentation traceability, not runtime capability evidence",
+  "source": "Owner HYBRID.NET Genesis mission, sections 0-44, 2026-10-22",
+  "sections": [
+    {
+      "id": 0,
+      "title": "Executive mission",
+      "documents": [
+        "README.md",
+        "docs/genesis/GENESIS-1-SCOPE.md"
+      ],
+      "coverage": "Architecture foundation; no full framework implementation."
+    },
+    {
+      "id": 1,
+      "title": "Fundamental philosophy",
+      "documents": [
+        "docs/vision/HUMAN-AI-INTEROPERABILITY.md",
+        "docs/vision/FOUNDING-VISION.md"
+      ],
+      "coverage": "Human visual interfaces, machine capabilities, supported-interface limits."
+    },
+    {
+      "id": 2,
+      "title": "Dual executable applications",
+      "documents": [
+        "docs/vision/DUAL-EXECUTABLE-CONCEPT.md",
+        "docs/decisions/ADR-0005-DUAL-EXECUTABLES.md"
+      ],
+      "coverage": "Shared native core; third-party companion does not grant internal access."
+    },
+    {
+      "id": 3,
+      "title": "AI-native execution framework and AIXR",
+      "documents": [
+        "docs/vision/AIXR-CONCEPT.md",
+        "docs/vision/FOUNDING-VISION.md"
+      ],
+      "coverage": "Shared infrastructure; AIXR is a subsystem, HYBRID.NET retains identity."
+    },
+    {
+      "id": 4,
+      "title": "New software interaction layer",
+      "documents": [
+        "ARCHITECTURE.md",
+        "docs/architecture/SYSTEM-OVERVIEW.md"
+      ],
+      "coverage": "Agents, core, discovery/orchestration/verification, adapters and user-space OS boundary."
+    },
+    {
+      "id": 5,
+      "title": "Six-language ecosystem",
+      "documents": [
+        "docs/architecture/MULTILANGUAGE-RUNTIME.md",
+        "docs/decisions/ADR-0003-MULTILANGUAGE.md"
+      ],
+      "coverage": "Common semantics without six mandatory installed runtimes."
+    },
+    {
+      "id": 6,
+      "title": "Go engineering domain",
+      "documents": [
+        "docs/languages/GO.md"
+      ],
+      "coverage": "Candidate concurrent orchestration and communication domain."
+    },
+    {
+      "id": 7,
+      "title": "C++ engineering domain",
+      "documents": [
+        "docs/languages/CPP.md"
+      ],
+      "coverage": "Documented native SDK, DLL and Windows integration."
+    },
+    {
+      "id": 8,
+      "title": "Java engineering domain",
+      "documents": [
+        "docs/languages/JAVA.md"
+      ],
+      "coverage": "JVM and enterprise workers sharing capability contracts."
+    },
+    {
+      "id": 9,
+      "title": "JavaScript and TypeScript domain",
+      "documents": [
+        "docs/languages/JAVASCRIPT.md"
+      ],
+      "coverage": "Studio/browser/developer clients; UI technology remains open."
+    },
+    {
+      "id": 10,
+      "title": "Python engineering domain",
+      "documents": [
+        "docs/languages/PYTHON.md"
+      ],
+      "coverage": "AI, scripting, diagnostics; deterministic operations do not need inference."
+    },
+    {
+      "id": 11,
+      "title": "C# and .NET engineering domain",
+      "documents": [
+        "docs/languages/DOTNET.md"
+      ],
+      "coverage": "Managed Windows/COM services; distinct from Microsoft products."
+    },
+    {
+      "id": 12,
+      "title": "HMCP universal capability contract",
+      "documents": [
+        "docs/protocols/HMCP-CONCEPT.md",
+        "protocols/README.md",
+        "docs/decisions/ADR-0004-CAPABILITY-CONTRACTS.md"
+      ],
+      "coverage": "Versioned discovery, invocation, state, identity, errors, cancellation and verification."
+    },
+    {
+      "id": 13,
+      "title": "Semantic capability discovery and L0-L5",
+      "documents": [
+        "docs/architecture/CAPABILITY-ENGINE.md"
+      ],
+      "coverage": "Installed versus evidenced capability; maturity is not permission."
+    },
+    {
+      "id": 14,
+      "title": "Live application state",
+      "documents": [
+        "docs/architecture/APPLICATION-STATE.md"
+      ],
+      "coverage": "Supported structured observations with versions, timestamps and limits."
+    },
+    {
+      "id": 15,
+      "title": "Two-sided deployment",
+      "documents": [
+        "docs/decisions/ADR-0002-DUAL-DEPLOYMENT.md",
+        "ARCHITECTURE.md"
+      ],
+      "coverage": "Separate client/server products; server optional."
+    },
+    {
+      "id": 16,
+      "title": "Client responsibilities and proposed products",
+      "documents": [
+        "docs/architecture/STANDALONE-CLIENT.md",
+        "client/README.md"
+      ],
+      "coverage": "Local gateway/runtime, adapters, verification, identity, persistence."
+    },
+    {
+      "id": 17,
+      "title": "Standalone mode",
+      "documents": [
+        "docs/architecture/STANDALONE-CLIENT.md"
+      ],
+      "coverage": "Local registry/evidence/configuration and offline deterministic operations."
+    },
+    {
+      "id": 18,
+      "title": "Connected mode",
+      "documents": [
+        "docs/architecture/DISTRIBUTED-SERVER.md"
+      ],
+      "coverage": "Authorized distributed discovery, jobs and evidence."
+    },
+    {
+      "id": 19,
+      "title": "Hybrid mode",
+      "documents": [
+        "docs/architecture/HYBRID-MODE.md"
+      ],
+      "coverage": "Appropriate local-first selection and authorized remote specialization."
+    },
+    {
+      "id": 20,
+      "title": "Server-independent operation",
+      "documents": [
+        "docs/architecture/STANDALONE-CLIENT.md",
+        "docs/architecture/HYBRID-MODE.md"
+      ],
+      "coverage": "Outages do not stop local work; uncertain side effects are reconciled."
+    },
+    {
+      "id": 21,
+      "title": "Optional local API",
+      "documents": [
+        "docs/protocols/HMCP-CONCEPT.md",
+        "docs/security/API-KEY-ARCHITECTURE.md"
+      ],
+      "coverage": "Conceptual loopback 55001/execute interface; scoped authentication."
+    },
+    {
+      "id": 22,
+      "title": "Server responsibilities and proposed products",
+      "documents": [
+        "docs/architecture/DISTRIBUTED-SERVER.md",
+        "server/README.md"
+      ],
+      "coverage": "Enrollment, identity, scheduling, registry, health, optional SQL Server."
+    },
+    {
+      "id": 23,
+      "title": "Three credential authorities",
+      "documents": [
+        "docs/security/API-KEY-ARCHITECTURE.md",
+        "docs/security/CLIENT-IDENTITY.md"
+      ],
+      "coverage": "Provider credentials, client identity and scoped framework tokens."
+    },
+    {
+      "id": 24,
+      "title": "Windows credential protection",
+      "documents": [
+        "docs/security/CREDENTIAL-STORAGE.md",
+        "docs/integrations/CAE.md"
+      ],
+      "coverage": "DPAPI/Credential Manager candidates; no secrets in source/logs/ordinary rows."
+    },
+    {
+      "id": 25,
+      "title": "SQL persistence and logical entities",
+      "documents": [
+        "docs/persistence/SQLITE-CONCEPT.md",
+        "docs/persistence/SQL-SERVER-CONCEPT.md",
+        "docs/persistence/DATA-MODEL.md"
+      ],
+      "coverage": "SQLite client, optional SQL Server, eleven conceptual entities, no installation."
+    },
+    {
+      "id": 26,
+      "title": "Human interface and Studio",
+      "documents": [
+        "docs/architecture/SYSTEM-OVERVIEW.md",
+        "docs/languages/JAVASCRIPT.md"
+      ],
+      "coverage": "Human management/exploration over shared runtime state; UI stack open."
+    },
+    {
+      "id": 27,
+      "title": "AI interface",
+      "documents": [
+        "docs/protocols/MCP-INTEGRATION.md",
+        "docs/integrations/CODEX.md"
+      ],
+      "coverage": "Structured agent discovery/status/errors/evidence; local and remote AI optional."
+    },
+    {
+      "id": 28,
+      "title": "Existing project integration",
+      "documents": [
+        "docs/integrations/CFA.md",
+        "docs/integrations/SCE.md",
+        "docs/integrations/QASC-CLARA.md",
+        "docs/integrations/CAE.md",
+        "docs/integrations/POK.md"
+      ],
+      "coverage": "Independent optional neighboring projects; no merger or mandatory dependency."
+    },
+    {
+      "id": 29,
+      "title": "Reference application adapters",
+      "documents": [
+        "adapters/REFERENCE-TARGETS.md",
+        "adapters/README.md"
+      ],
+      "coverage": "All named targets preserved as future candidates, including LibreOffice."
+    },
+    {
+      "id": 30,
+      "title": "Ten design principles",
+      "documents": [
+        "docs/vision/FOUNDING-VISION.md",
+        "AGENTS.md"
+      ],
+      "coverage": "Human outcome, direct interfaces, independent client, modularity and verified labor reduction."
+    },
+    {
+      "id": 31,
+      "title": "Repository organization",
+      "documents": [
+        "README.md",
+        "docs/README.md"
+      ],
+      "coverage": "Substantive ownership documents; no dummy code modules."
+    },
+    {
+      "id": 32,
+      "title": "Documentation evidence classes",
+      "documents": [
+        "CONTRIBUTING.md",
+        "PROJECT_STATUS.md"
+      ],
+      "coverage": "Vision/proposal/decision/hypothesis/implementation/verified distinctions."
+    },
+    {
+      "id": 33,
+      "title": "Eight initial ADRs",
+      "documents": [
+        "docs/decisions/README.md"
+      ],
+      "coverage": "Identity, deployment, languages, contracts, dual interfaces, SQL, credentials, verification."
+    },
+    {
+      "id": 34,
+      "title": "Genesis 1-9 roadmap",
+      "documents": [
+        "ROADMAP.md"
+      ],
+      "coverage": "Measured milestone exits and evidence-driven refinement."
+    },
+    {
+      "id": 35,
+      "title": "Future agent continuity",
+      "documents": [
+        "AGENTS.md"
+      ],
+      "coverage": "First reads, scope, invariants, repository layout and milestone discipline."
+    },
+    {
+      "id": 36,
+      "title": "GitHub creation and publication",
+      "documents": [
+        "docs/genesis/GENESIS-1-REPORT.md"
+      ],
+      "coverage": "Check existence/authentication; preserve existing work; actual publication evidence."
+    },
+    {
+      "id": 37,
+      "title": "Local workspace preservation",
+      "documents": [
+        "docs/genesis/GENESIS-1-SCOPE.md",
+        "docs/genesis/GENESIS-1-REPORT.md"
+      ],
+      "coverage": "I:\\HYBRID-NET checked before creation; neighboring repositories untouched."
+    },
+    {
+      "id": 38,
+      "title": "README, architecture and status requirements",
+      "documents": [
+        "README.md",
+        "ARCHITECTURE.md",
+        "PROJECT_STATUS.md"
+      ],
+      "coverage": "Clear answers, system diagrams, accurate implementation boundary."
+    },
+    {
+      "id": 39,
+      "title": "Twenty acceptance criteria",
+      "documents": [
+        "docs/genesis/GENESIS-1-ACCEPTANCE.md"
+      ],
+      "coverage": "Fixed documentation/commit/publication checks; no accidental credentials."
+    },
+    {
+      "id": 40,
+      "title": "Genesis implementation boundary",
+      "documents": [
+        "docs/genesis/GENESIS-1-SCOPE.md",
+        "tests/README.md"
+      ],
+      "coverage": "No runtime prototype, service, OS modifications or third-party installations."
+    },
+    {
+      "id": 41,
+      "title": "Version and readiness",
+      "documents": [
+        "VERSION",
+        "PROJECT_STATUS.md",
+        "CHANGELOG.md"
+      ],
+      "coverage": "0.0.1, Genesis 1, architecture foundation; no product readiness claim."
+    },
+    {
+      "id": 42,
+      "title": "Final report",
+      "documents": [
+        "docs/genesis/GENESIS-1-REPORT.md"
+      ],
+      "coverage": "Local/remote/branch/commit/docs/decisions/questions/next step and actual verification."
+    },
+    {
+      "id": 43,
+      "title": "Long-term framework identity",
+      "documents": [
+        "docs/vision/FOUNDING-VISION.md",
+        "docs/decisions/ADR-0001-PROJECT-IDENTITY.md"
+      ],
+      "coverage": "AI-native execution/interoperability across runtimes and authorized computers."
+    },
+    {
+      "id": 44,
+      "title": "Founding principle and final directive",
+      "documents": [
+        "docs/vision/FOUNDING-VISION.md",
+        "AGENTS.md"
+      ],
+      "coverage": "Human intent, machine execution, evidence-based verification and reduced repetitive labor."
+    }
+  ]
+}

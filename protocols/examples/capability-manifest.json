@@ -1,0 +1,36 @@
+{
+  "example_status": "CONCEPTUAL_ONLY_NOT_IMPLEMENTED",
+  "framework": "HYBRID.NET",
+  "protocol": "HMCP",
+  "protocol_version": "0.1-draft",
+  "application": "LibreOffice",
+  "adapter": {
+    "id": "LibreOffice.UNO",
+    "version": "illustrative-only",
+    "integration_level": "L3"
+  },
+  "capability": {
+    "id": "DOCUMENT.EXPORT_PDF",
+    "version": "0.1-draft",
+    "semantic_tags": ["document", "pdf", "export"],
+    "inputs": {
+      "source": {"type": "resource_reference", "access": "read"},
+      "destination": {"type": "resource_reference", "access": "create_new"}
+    },
+    "outputs": {"artifact": {"type": "artifact_reference"}},
+    "required_scope": "document.export_pdf",
+    "effects": "creates_output_file",
+    "idempotency": "requires_adapter_policy_and_durable_key",
+    "cancellation": "best_effort_with_effect_reporting"
+  },
+  "availability": {
+    "status": "declared",
+    "checked_at": null,
+    "evidence": []
+  },
+  "verification": {
+    "required": true,
+    "proposed_criteria": ["output_exists", "pdf_parses", "expected_content_present"],
+    "implemented": false
+  }
+}

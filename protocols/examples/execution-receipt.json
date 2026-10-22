@@ -1,0 +1,30 @@
+{
+  "example_status": "CONCEPTUAL_ONLY_NOT_IMPLEMENTED",
+  "framework": "HYBRID.NET",
+  "protocol": "HMCP",
+  "protocol_version": "0.1-draft",
+  "request_id": "example-request-001",
+  "job_id": "example-job-001",
+  "capability": "DOCUMENT.EXPORT_PDF",
+  "capability_version": "0.1-draft",
+  "adapter_version": "illustrative-only",
+  "execution": {
+    "status": "unknown_outcome",
+    "effect_status": "unknown",
+    "last_event_sequence": 2,
+    "reason_code": "CONNECTION_LOST_AFTER_DISPATCH",
+    "safe_message": "The example illustrates uncertainty; no operation was executed.",
+    "automatic_replay_allowed": false
+  },
+  "verification": {
+    "status": "inconclusive",
+    "criteria_reference": "example-pdf-contract-v1",
+    "verifier_id": null,
+    "artifact_hashes": [],
+    "evidence": []
+  },
+  "recovery": {
+    "action": "reconcile_existing_job_before_retry",
+    "requires_new_job": false
+  }
+}

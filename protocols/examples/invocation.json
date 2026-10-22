@@ -1,0 +1,22 @@
+{
+  "example_status": "CONCEPTUAL_ONLY_NOT_IMPLEMENTED",
+  "framework": "HYBRID.NET",
+  "protocol": "HMCP",
+  "protocol_version": "0.1-draft",
+  "request_id": "example-request-001",
+  "operation": "invoke",
+  "application": "LibreOffice",
+  "capability": "DOCUMENT.EXPORT_PDF",
+  "capability_version": "0.1-draft",
+  "adapter": "LibreOffice.UNO",
+  "parameters": {
+    "source": "workspace:example-input.docx",
+    "destination": "workspace:example-output.pdf"
+  },
+  "idempotency_key": "example-export-001",
+  "expected_application_instance_id": null,
+  "expected_state_version": null,
+  "deadline_seconds": 30,
+  "verification": {"required": true, "criteria_reference": "example-pdf-contract-v1"},
+  "authorization_note": "Identity comes from the authenticated channel and local policy; no credential belongs in this body."
+}

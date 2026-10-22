@@ -1,0 +1,19 @@
+# Local evidence and temporary engineering data
+.local/
+.venv/
+__pycache__/
+node_modules/
+bin/
+obj/
+build/
+dist/
+*.log
+*.tmp
+# Secrets never belong to source control
+.env
+.env.*
+*.pfx
+*.p12
+*.key
+*.pem
+credentials.json
