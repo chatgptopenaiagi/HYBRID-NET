@@ -33,9 +33,11 @@ working-tree or remote state from a dated document.
 The [architectural addendum](docs/genesis/ARCHITECTURAL-ADDENDUM.md) maps the HACE,
 independent-evidence and first-experiment refinements to their canonical documents.
 
-Initial local path: `I:\HYBRID-NET`. Intended public repository:
+Initial local path: `I:\HYBRID-NET`. Published public repository:
 [chatgptopenaiagi/HYBRID-NET](https://github.com/chatgptopenaiagi/HYBRID-NET).
-Publication is pending final foundation validation and commit at this checkpoint.
+Publication was verified on 2026-10-22: remote `main` matched the scoped addendum
+commit `e949356a23db9edd848536c034778b19fdf5572f`, with all 79 files present.
+The report records validation and the subsequent publication-evidence update.
 
 ## Next engineering work
 

@@ -10,13 +10,23 @@ No framework runtime or application capability has been implemented or exercised
 - Branch: `main`.
 - Public target: [chatgptopenaiagi/HYBRID-NET](https://github.com/chatgptopenaiagi/HYBRID-NET).
 - Initial foundation commit: `67c913c40a09ab3734a4a1fb2733a971d658e0bb`.
-- Publication: pending scoped addendum commit and authenticated remote read-back.
+- Scoped architectural addendum commit: `e949356a23db9edd848536c034778b19fdf5572f`.
+- Publication: **VERIFIED**, public repository, default branch `main`, all 79 files.
 
 The local path did not exist before Genesis initialization. Git 2.55.0.windows.5
 and GitHub CLI 2.100.0 were available; the authenticated GitHub account was
 chatgptopenaiagi. Both initial remote lookups found no existing target, and a
 pre-publication lookup still found none. Existing repositories, installations,
 applications and credentials were not changed or imported into HYBRID.NET.
+
+`gh repo create --public --source . --remote origin --push` completed with exit 0.
+Authenticated repository metadata, the GitHub commits API and `git ls-remote`
+independently returned the addendum commit above for `main`; the remote tree
+contained 79 files. The local branch tracked `origin/main`, ahead/behind was 0/0,
+and the working tree was clean before this publication-evidence update. No release
+or tag was created. The final update is a separate scoped documentation commit;
+current HEAD and final remote equality belong to Git and the ignored local receipt
+`I:\HYBRID-NET\.local\publication-evidence.json`, avoiding a self-referential hash.
 
 ## Preserved architecture
 
@@ -45,6 +55,15 @@ remain proposed. ADR-0008 now records the Independent Evidence Principle; ADR-00
 and ADR-0004 align the language and contract experiments with the refined roadmap.
 Root introductions, status, continuity instructions and affected ownership/research
 documents use short references to the canonical definitions.
+
+The addendum commit changes 32 files. Its three new canonical documents are
+`docs/architecture/INDEPENDENT-VERIFICATION.md`,
+`docs/genesis/ARCHITECTURAL-ADDENDUM.md` and `docs/genesis/GENESIS-2-EXPERIMENT.md`.
+Existing HACE/AIXR/HMCP, architecture, persistence, roadmap, ADRs, continuity,
+research and navigation documents now reference them. The conceptual
+`protocols/examples/execution-receipt.json` adds provenance and a null evidence
+level, preserving its explicit unexecuted status. The exact scoped file list is
+reproducible with `git show --format= --name-status e949356`.
 
 ## Validation and review
 
@@ -79,10 +98,12 @@ test external URLs, Markdown anchors, rendered diagrams or HMCP runtime conforma
 
 ## Acceptance and remaining work
 
-G1-01 through G1-17 and G1-20 have local repository/documentation evidence. G1-18
-(publication) and G1-19 (final remote/working-tree handoff) remain pending at this
-pre-publication checkpoint. The addendum's architectural preservation is complete;
-its publication will be recorded only after remote verification.
+All twenty Genesis 1 criteria have repository, review or publication evidence.
+G1-18 was completed by authenticated publication and remote commit/tree read-back;
+G1-19 records the main branch, matching upstream and clean tree, with the final
+publication-evidence commit checked again at handoff. No remaining Genesis 1
+architectural-preservation or publication gap was identified. The addendum's nine
+sections are covered; documentation validation is not operational acceptance.
 
 Open engineering choices are the first language/transport binding, exact schema
 and framing, supported LibreOffice interface, independent parser/table extraction,
