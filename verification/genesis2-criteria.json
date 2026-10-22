@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "criteria_id": "HNET-G2-DOCXPDF-ORCHID-7319",
+  "criteria_version": "1.0",
+  "capability": "document.export_pdf",
+  "normalization": "Unicode NFC; collapse whitespace; preserve case, punctuation and numeric spelling",
+  "expected_page_count": 2,
+  "title": "HYBRID.NET Genesis 2 - ORCHID-7319",
+  "paragraphs": {
+    "1": [
+      "This synthetic document tests direct machine conversion without graphical automation.",
+      "The source document must remain unchanged while the PDF is checked independently."
+    ],
+    "2": ["All three synthetic table rows must survive conversion in their original order."]
+  },
+  "table_page": 1,
+  "table_matrix": [
+    ["Item", "Description", "Amount"],
+    ["A101", "Amber sample", "12.50"],
+    ["B202", "Blue sample", "7.50"],
+    ["C303", "Coral sample", "5.00"]
+  ],
+  "second_heading": "Verification continuation - ORCHID-7319",
+  "closing_line": "END-OF-FIXTURE-ORCHID-7319",
+  "layout": {
+    "paper": "A4 portrait",
+    "margins_mm": 20,
+    "font": "Arial",
+    "body_pt": 11,
+    "title_pt": 16,
+    "line_spacing": 1.15,
+    "table_columns_mm": [30, 85, 55],
+    "page_breaks": 1
+  },
+  "table_method": "pdfplumber ruled-cell geometry: vertical_strategy=lines, horizontal_strategy=lines; exact 4x3 normalized matrix",
+  "mandatory_criteria": ["AC-01", "AC-02", "AC-03", "AC-04", "AC-05", "AC-06", "AC-07", "AC-08", "AC-09", "AC-10"],
+  "visual_fidelity": "NOT_TESTED"
+}

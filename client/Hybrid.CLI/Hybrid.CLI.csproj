@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>Hybrid.CLI</AssemblyName></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../core/Hybrid.Core/Hybrid.Core.csproj" />
+    <Content Include="../../verification/*.py" Link="verification/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../../verification/*criteria.json" Link="verification/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../../verification/requirements.txt" Link="verification/requirements.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

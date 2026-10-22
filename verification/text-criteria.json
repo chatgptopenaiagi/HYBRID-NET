@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "criteria_id": "HNET-G2-TEXT-NORMALIZE",
+  "criteria_version": "1.0",
+  "capability": "text.normalize",
+  "encoding": "UTF-8 without BOM",
+  "transformation": "Unicode NFC, then CRLF and CR to LF; preserve all other content",
+  "mandatory_criteria": ["TC-01", "TC-02", "TC-03", "TC-04", "TC-05", "TC-06"]
+}

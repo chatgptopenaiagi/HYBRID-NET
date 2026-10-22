@@ -5,7 +5,7 @@ param([string]$ReportPath)
 $ErrorActionPreference = 'Stop'
 $repositoryRoot = [IO.Path]::GetFullPath((Split-Path -Parent $PSScriptRoot))
 $failures = [Collections.Generic.List[string]]::new()
-$checks = [ordered]@{ markdown_files = 0; local_links = 0; json_files = 0; founding_sections = 0; reviewed_files = 0 }
+$checks = [ordered]@{ markdown_files = 0; local_links = 0; json_files = 0; founding_sections = 0; reviewed_files = 0; implementation_text_files = 0 }
 $started = [DateTime]::UtcNow.ToString('o')
 
 try {
@@ -54,10 +54,17 @@ try {
         }
         $checks.reviewed_files++
         $extension = [IO.Path]::GetExtension($path)
-        if ($extension -notin @('.md','.json','.ps1') -and $name -notin @('VERSION','.gitignore','.gitattributes')) {
-            $failures.Add("Unexpected file type for this documentation milestone: $name")
+        # Genesis 2 deliberately adds text source and project files. Build outputs,
+        # fixtures, PDFs, databases, caches and machine evidence remain ignored.
+        # Do not turn this into a broad binary-artifact allowlist.
+        $sourceExtensions = @('.cs','.csproj','.props','.py')
+        $isRequirements = $extension -eq '.txt' -and [IO.Path]::GetFileName($name) -match '^requirements(?:-[a-z0-9_-]+)?\.txt$'
+        if ($extension -notin (@('.md','.json','.ps1') + $sourceExtensions) -and -not $isRequirements -and
+            $name -notin @('VERSION','.gitignore','.gitattributes')) {
+            $failures.Add("Unexpected tracked/source file type for Genesis 2: $name")
             continue
         }
+        if ($extension -in $sourceExtensions -or $isRequirements) { $checks.implementation_text_files++ }
         $content = Get-Content -LiteralPath $path -Raw
         foreach ($pattern in $secretPatterns) {
             if ($content -match $pattern) { $failures.Add("Possible credential material: $name (matched value suppressed)") }
@@ -84,8 +91,8 @@ try {
             }
         }
     }
-    if ((Get-Content -LiteralPath (Join-Path $repositoryRoot 'VERSION') -Raw).Trim() -ne '0.0.1') {
-        $failures.Add('Genesis 1 version must be 0.0.1; update this gate deliberately for a later milestone.')
+    if ((Get-Content -LiteralPath (Join-Path $repositoryRoot 'VERSION') -Raw).Trim() -ne '0.1.0') {
+        $failures.Add('Genesis 2 version must be 0.1.0; historical Genesis 1 documents retain their original version.')
     }
 } catch {
     $failures.Add("Validation infrastructure error: $($_.Exception.GetType().Name)")

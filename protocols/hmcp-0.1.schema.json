@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:hybrid-net:hmcp:0.1",
+  "title": "HYBRID.NET HMCP 0.1 local semantic contracts",
+  "$comment": "Request semantics are enforced by Contracts.cs. These definitions document implemented messages; no network service or general JSON Schema validator is implied.",
+  "$defs": {
+    "request": {
+      "type": "object", "additionalProperties": false,
+      "required": ["protocol", "version", "operation_id", "capability", "application", "parameters"],
+      "properties": {
+        "protocol": {"const": "HMCP"}, "version": {"const": "0.1"},
+        "operation_id": {"type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"},
+        "capability": {"enum": ["document.export_pdf", "text.normalize"]},
+        "application": {"enum": ["LibreOffice", "Hybrid.Text"]},
+        "parameters": {"type": "object", "additionalProperties": false, "required": ["source", "destination"], "properties": {"source": {"type": "string", "minLength": 1}, "destination": {"type": "string", "minLength": 1}}},
+        "options": {"type": "object", "additionalProperties": false, "properties": {"timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 300}, "criteria_path": {"type": "string", "minLength": 1}}}
+      }
+    },
+    "criterion": {
+      "type": "object", "required": ["id", "expected", "observed", "outcome", "evidence_reference", "verifier_id"],
+      "properties": {"id": {"type": "string"}, "expected": {}, "observed": {}, "outcome": {"enum": ["PASS", "FAIL", "INCONCLUSIVE"]}, "evidence_reference": {"type": "string"}, "verifier_id": {"type": "string"}}
+    },
+    "verification": {
+      "type": "object", "required": ["outcome", "level"],
+      "properties": {"outcome": {"enum": ["VERIFIED", "FAILED", "INCONCLUSIVE"]}, "level": {"enum": ["V0", "V1", "V2", "V3", "V4", "V5"]}, "criteria": {"type": "array", "items": {"$ref": "#/$defs/criterion"}}}
+    },
+    "error": {"type": "object", "required": ["code", "category"], "properties": {"code": {"type": "string"}, "category": {"type": "string"}}},
+    "receipt": {
+      "type": "object", "required": ["operation_id", "state", "verification"],
+      "properties": {"protocol": {"const": "HMCP"}, "version": {"const": "0.1"}, "operation_id": {"type": "string"}, "state": {"enum": ["CREATED", "VALIDATED", "PREPARING", "RUNNING", "EXECUTED", "VERIFYING", "VERIFIED", "FAILED", "INCONCLUSIVE", "CANCELLED"]}, "verification": {"$ref": "#/$defs/verification"}, "error": {"$ref": "#/$defs/error"}, "execution": {"type": "object"}, "artifacts": {"type": "array"}, "verification_history": {"type": "array"}, "events": {"type": "array"}}
+    },
+    "capability": {
+      "type": "object", "required": ["capability", "application", "adapter_id", "adapter_version", "application_installed", "adapter_registered", "availability"],
+      "properties": {"capability": {"type": "string"}, "application": {"type": "string"}, "adapter_id": {"type": "string"}, "adapter_version": {"type": "string"}, "application_installed": {"type": "boolean"}, "adapter_registered": {"const": true}, "capability_verified": {"type": "boolean"}, "availability": {"type": "string"}, "last_successful_verification": {"type": ["object", "null"]}}
+    }
+  }
+}
