@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "classification": "selected_aggregate_execution_evidence",
+  "project": "HYBRID.NET",
+  "version": "0.1.0",
+  "foundation_commit": "59924a07d7870665478d9ed279f2af8ab76daf32",
+  "branch": "feat/genesis-2-runtime",
+  "platform": "Windows 10 Pro 10.0.19045 x64",
+  "automated_tests": {
+    "tests": 118.0,
+    "passed": 118.0,
+    "failed": 0.0,
+    "suites": [
+      {
+        "suite": "contracts",
+        "tests": 44,
+        "passed_count": 44,
+        "failed_count": 0,
+        "skipped_count": 0,
+        "exit_code": 0
+      },
+      {
+        "suite": "store",
+        "tests": 24,
+        "passed_count": 24,
+        "failed_count": 0,
+        "skipped_count": 0,
+        "exit_code": 0
+      },
+      {
+        "suite": "process",
+        "tests": 17,
+        "passed_count": 17,
+        "failed_count": 0,
+        "skipped_count": 0,
+        "exit_code": 0
+      },
+      {
+        "suite": "python",
+        "tests": 33,
+        "passed_count": 33,
+        "failed_count": 0,
+        "skipped_count": 0,
+        "exit_code": 0
+      }
+    ]
+  },
+  "packaged_acceptance": {
+    "started_at": "2026-10-22T11:39:50.68413+02:00",
+    "finished_at": "2026-10-22T11:43:51.485954+02:00",
+    "checks": 33,
+    "passed": true,
+    "faults": 11,
+    "faults_detected": 11,
+    "false_success_count": 0,
+    "fixture_preserved": true
+  },
+  "fixture": {
+    "id": "HNET-G2-DOCXPDF-ORCHID-7319",
+    "version": "1.0",
+    "sha256": "09d5f6e97ffe1ee88ae1dd499405f2bdeb7b3bf1c061658a33742cd746be310d",
+    "criteria_sha256": "8fa474df1d2134d28ba0fa489d40b44691e73757b3ee38b84bf1698f466296de",
+    "expected_pages": 2
+  },
+  "comparison": {
+    "A_DIRECT": {
+      "trials": 3,
+      "mean_total_wall_ms": 15331.300100006047,
+      "success_rate": 1
+    },
+    "B_FRAMEWORK": {
+      "trials": 3,
+      "mean_total_wall_ms": 20086.25849999953,
+      "success_rate": 1
+    }
+  },
+  "trials": [
+    {
+      "mode": "A_DIRECT",
+      "operation_id": "trial-1-a",
+      "execution_ms": 12352.08579999744,
+      "verification_ms": 264.018,
+      "total_wall_ms": 15444.117300008656,
+      "success": true,
+      "output_sha256": "e606f6ce259a6ac1fea5b6501be5eb8bb9325a9f29c60dc611837240e09b7ba5"
+    },
+    {
+      "mode": "B_FRAMEWORK",
+      "operation_id": "trial-2-b",
+      "execution_ms": 12994.4316,
+      "verification_ms": 265.146,
+      "total_wall_ms": 19401.37130000221,
+      "success": true,
+      "output_sha256": "b3f48aa050c5b4f2e3e42698c1dd399898ca55f95f9ae37fc5f5722809dcc98f"
+    },
+    {
+      "mode": "B_FRAMEWORK",
+      "operation_id": "trial-3-b",
+      "execution_ms": 12016.6565,
+      "verification_ms": 265.749,
+      "total_wall_ms": 18606.24249999819,
+      "success": true,
+      "output_sha256": "d84c48e04a35b552646a6c2a9c6cc81ee0f1f94185a73ac42ce4df62a548310e"
+    },
+    {
+      "mode": "A_DIRECT",
+      "operation_id": "trial-4-a",
+      "execution_ms": 12307.483800002956,
+      "verification_ms": 266.968,
+      "total_wall_ms": 15300.448900001356,
+      "success": true,
+      "output_sha256": "372e3f1721029a3892e5005999e397f2f47def64c177c4c9473381ba64270f3b"
+    },
+    {
+      "mode": "A_DIRECT",
+      "operation_id": "trial-5-a",
+      "execution_ms": 12130.942200004938,
+      "verification_ms": 283.142,
+      "total_wall_ms": 15249.334100008127,
+      "success": true,
+      "output_sha256": "6a169e37bb44bf32daa6ccf7a1ef29467bd02eb80135de89f97be72e53a5e051"
+    },
+    {
+      "mode": "B_FRAMEWORK",
+      "operation_id": "trial-6-b",
+      "execution_ms": 15118.9164,
+      "verification_ms": 275.505,
+      "total_wall_ms": 22251.161699998192,
+      "success": true,
+      "output_sha256": "d23ab43809c5b1f9e5eeb29944e518975c70c91ff44c751511a92fb139eff3e4"
+    }
+  ],
+  "reproducibility": {
+    "first_operation_id": "trial-2-b",
+    "second_operation_id": "trial-3-b",
+    "level": "V5",
+    "criteria_sha256": "8fa474df1d2134d28ba0fa489d40b44691e73757b3ee38b84bf1698f466296de",
+    "environment_key": "6ba1d7f9cc783930c8c067564185496ebc12edf5807f4be9e8d6efaf11a31796",
+    "byte_identical": false,
+    "original_receipts_unchanged": true,
+    "reproducibility_id": "82a1a776bc9946a7925d179ee59f0506"
+  },
+  "second_capability": {
+    "capability": "text.normalize",
+    "verified": true
+  },
+  "gates": {
+    "feasibility": "PASSED",
+    "reusability": "PASSED",
+    "engineering_advantage": "INCONCLUSIVE"
+  },
+  "metrics": {
+    "retry_count": 0,
+    "evidence_storage_bytes_at_summary": 921600,
+    "human_intervention_count": "NOT_ESTABLISHED",
+    "human_intervention_time": "NOT_ESTABLISHED",
+    "human_time_recovered": "NOT_ESTABLISHED",
+    "adapter_development_effort": "NOT_ESTABLISHED"
+  },
+  "build": {
+    "configuration": "Release",
+    "rid": "win-x64",
+    "self_contained": true,
+    "dotnet_sdk": "10.0.402",
+    "source_fingerprint": "4ccbd7b1eaf7dee287e144848d04f4d021addc865bc0a6eb5a4ff0474a2bdde8",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "path": "Hybrid.CLI.dll",
+        "size": 22528,
+        "sha256": "a95c588c3a2cf4c1dde2c30bc0bfcddf8900221835eed91a45274aed876625f4"
+      },
+      {
+        "path": "Hybrid.CLI.exe",
+        "size": 162304,
+        "sha256": "856d0ab0b980948f090d5fa30776e41ea395f712ba4e5b75a54825e0853bd2df"
+      },
+      {
+        "path": "Hybrid.Core.dll",
+        "size": 96256,
+        "sha256": "d931f715e41de252f000cc0f7fcdc8e01031388fc7e3cde5318a5f3eed60d087"
+      },
+      {
+        "path": "verification\\verify.py",
+        "size": 17097,
+        "sha256": "23fdc192df57eef7b5ff29b1a04c260c0569ca12cba6bad606013209a557bc81"
+      }
+    ]
+  },
+  "limitations": [
+    "Physical network disconnection not tested.",
+    "Windows 11 and clean-machine portability not tested.",
+    "Python and LibreOffice remain external dependencies.",
+    "Text/table/page checks do not establish pixel-perfect fidelity.",
+    "Memory samples cover root launchers, not full process trees.",
+    "Human effort baseline and engineering advantage not established.",
+    "No OS sandbox or production-readiness claim."
+  ],
+  "local_evidence_root": ".local/genesis2-final",
+  "test_report": ".local/test-runs/20261022T094119974Z-b888353f/summary.json",
+  "implementation_commit": "358fc92d9e8fd03093a2d8a577b6df3c23697bb1"
+}

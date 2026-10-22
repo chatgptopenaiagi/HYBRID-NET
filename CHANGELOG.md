@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0 — HYBRID.NET Genesis 2 — implementation in progress
+
+Added the local C#/.NET CLI/core, explicit HACE adapter registry, HMCP JSON
+validation, bounded AIXR execution, LibreOffice PDF export and managed UTF-8 text
+normalization. Added independent Python verification and SQLite evidence with
+immutable receipts, later verification records, interrupted-owner recovery and
+separately recorded reproducibility evidence.
+
+Added the deterministic frozen DOCX fixture, contract/process/store/verifier
+tests, local build and test entry points, and a self-contained .NET win-x64 bundle.
+The initial packaged LibreOffice conversion and its separate re-verification both
+passed AC-01–AC-10 at V4. Full milestone acceptance and comparative measurements
+remain separate evidence requirements. Python and LibreOffice remain external;
+no server, GUI, MCP service, network API or installer was introduced.
+
+See [implementation](docs/genesis/GENESIS-2-IMPLEMENTATION.md) and
+[ADR-0009](docs/decisions/ADR-0009-GENESIS-2-RUNTIME.md). Genesis 1 history remains
+unchanged below.
+
 ## 0.0.1 — HYBRID.NET Genesis 1 — 2026-10-22
 
 Architecture foundation: preserved the dual human/AI executable concept, internal

@@ -1,15 +1,25 @@
 # Client ownership boundary
 
-Status: **PROPOSED ARCHITECTURE; no client executable or installer**.
+Status: **IMPLEMENTED COMPONENT — local Genesis 2 CLI; broader client remains planned**.
 
-The future client owns local authority, registry, credentials, worker orchestration,
-verification, SQLite records and optional machine/human gateways. Server enrollment
-and remote AI configuration are optional extensions, not startup requirements.
-`Hybrid.Client.exe` and `HYBRID-NET-CLIENT-SETUP.exe` are proposed product names.
+[Hybrid.CLI](Hybrid.CLI/Hybrid.CLI.csproj) builds `Hybrid.CLI.exe`.
+[Program.cs](Hybrid.CLI/Program.cs) exposes JSON discovery, capability inspection,
+execution, receipt/history retrieval, re-verification and reproduction commands
+over [the shared core](../core/README.md). It supplies a machine interface without
+requiring a graphical application, server, model, credentials or network endpoint.
 
-Later acceptance must demonstrate deterministic local operations with network
-disconnected and server absent, authenticated protected capabilities, durable
-restart behavior and conflicting human/agent state changes. Studio may share this
-client's state but must not bypass its policy. No background listener or service is
-installed by this directory. Read [standalone design](../docs/architecture/STANDALONE-CLIENT.md)
-and [identity separation](../docs/security/API-KEY-ARCHITECTURE.md) before implementation.
+Build with [build.ps1](../scripts/build.ps1). The default Release `win-x64` directory
+includes the .NET runtime and verification scripts; keep the complete directory.
+Python with pinned packages and LibreOffice remain external dependencies. Use
+explicit `--workspace` and `--python` paths. The
+[operator guide](../docs/genesis/GENESIS-2-IMPLEMENTATION.md) documents exact commands,
+exit codes, workspace policy and the default state location beside the executable.
+
+`Hybrid.Client.exe`, Studio, credential providers and
+`HYBRID-NET-CLIENT-SETUP.exe` remain future products. No background listener or service
+is installed. Broader authentication, remote enrollment and shared human/AI state
+require later scoped implementation. Preserve the
+[standalone design](../docs/architecture/STANDALONE-CLIENT.md) and
+[identity separation](../docs/security/API-KEY-ARCHITECTURE.md). See
+[packaged test evidence](../docs/genesis/GENESIS-2-TEST-REPORT.md); no clean-machine
+or Windows 11 certification follows from execution on this workstation.

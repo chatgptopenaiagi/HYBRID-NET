@@ -1,8 +1,53 @@
 # HYBRID.NET architecture
 
-Status: **PROPOSED ARCHITECTURE**, constrained by the accepted founding ADRs.
-Genesis 1 contains no implementation of the components shown below. Design
-version: 0.0.1; proposed HMCP contract version: 0.1 draft.
+Status: **IMPLEMENTED COMPONENT** for the bounded Genesis 2 path below;
+**PROPOSED ARCHITECTURE** for the wider founding system. Product version: 0.1.0;
+implemented local HMCP contract version: 0.1. Genesis 1's documents and original
+conceptual examples remain preserved and do not become operational APIs retroactively.
+
+## Implemented Genesis 2 path
+
+```mermaid
+flowchart LR
+    CLI[Hybrid.CLI.exe: JSON CLI] --> Core[C# Hybrid.Core]
+    Core --> HACE[HACE: explicit adapter registry]
+    Core --> HMCP[HMCP: validation and operation identity]
+    Core --> AIXR[AIXR: bounded lifecycle]
+    AIXR --> LO[LibreOffice headless conversion]
+    AIXR --> Text[Managed UTF-8 normalization]
+    AIXR --> Verify[Independent Python PDF / text verifier]
+    Verify --> DB[(SQLite evidence)]
+    AIXR --> DB
+    DB --> Readback[Independent Python SQLite readback]
+    Readback --> Receipt[Truthful JSON receipt]
+```
+
+One .NET core library and one CLI implement the local path. HACE, HMCP and AIXR
+remain logical responsibilities, not three services. `ICapabilityAdapter` maps
+discovery and execution to an application-specific implementation; adapters report
+execution metadata and cannot award V4. The separate verifier evaluates fixed
+criteria, then a separate SQLite readback checks committed evidence before the
+runtime concludes verification. No model inference or network listener is required.
+
+The managed text adapter reuses admission, orchestration, verifier launch and
+storage. Both adapters are currently in-process .NET implementations; the
+independent verifier is a Python process. The six-language worker contract remains
+a future transport binding, not six delivered workers.
+
+Execution states are `CREATED`, `VALIDATED`, `PREPARING`, `RUNNING`, `EXECUTED`,
+`VERIFYING` and terminal `VERIFIED`, `FAILED`, `INCONCLUSIVE` or `CANCELLED`.
+Legal transitions are checked separately from V0–V5 evidence assertions. Request
+hashes reject conflicting operation IDs; identical requests return existing state
+without replay. Original receipts are immutable. Later verification and V5
+reproduction are additional records. Recovery considers owner PID and start time,
+preserving abandoned operations as INCONCLUSIVE rather than rerunning them.
+SQLite transactions, WAL and FULL synchronization provide durability, with
+owned-process interruption tests.
+
+See the [implementation and adapter contract](docs/genesis/GENESIS-2-IMPLEMENTATION.md)
+and [technology decision](docs/decisions/ADR-0009-GENESIS-2-RUNTIME.md). The remaining
+diagram and sections describe the broader founding architecture; server, Studio,
+credentials, network APIs and remote workers have not been implemented.
 
 ## System boundaries
 
@@ -124,8 +169,8 @@ not implemented synchronization.
 - [Protocol](docs/protocols/HMCP-CONCEPT.md), [IPC alternatives](docs/protocols/IPC-OPTIONS.md), [security](docs/security/API-KEY-ARCHITECTURE.md), [data model](docs/persistence/DATA-MODEL.md)
 - [Initial ADRs](docs/decisions/ADR-0001-PROJECT-IDENTITY.md), [open questions](docs/research/TECHNICAL-QUESTIONS.md), [measurable milestones](ROADMAP.md)
 
-The [Genesis 2 experiment](docs/genesis/GENESIS-2-EXPERIMENT.md) targets a deliberately
-small local LibreOffice conversion, independent PDF verification and SQLite evidence.
-Its ten acceptance criteria are specified before implementation. Neither this architecture nor
-the existence of a draft message establishes operational compatibility, application
-control, verified remote recovery or production readiness.
+The [Genesis 2 experiment](docs/genesis/GENESIS-2-EXPERIMENT.md) froze the deliberately
+small LibreOffice conversion and ten acceptance criteria before implementation.
+The first actual packaged run passed them, as recorded in the implementation guide.
+That observation does not establish universal application compatibility, remote
+recovery, clean-machine deployment, Windows 11 support or production readiness.
